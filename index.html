@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sian Crespo Coaching — MTB & Off-Road Triathlon Training Plans</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1e3d35;
+    --pine: #2d5a4e;
+    --sage: #4a7c6f;
+    --amber: #c17f3a;
+    --summit: #e8ede8;
+    --cream: #f5f2ee;
+    --text: #1a1a18;
+    --muted: #6b7068;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(245,242,238,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(30,61,53,0.08);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--forest);
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    color: var(--sage);
+    font-size: 10px;
+    letter-spacing: 4px;
+    display: block;
+    margin-top: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: var(--forest);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; }
+
+  .nav-cta {
+    background: var(--forest) !important;
+    color: var(--summit) !important;
+    opacity: 1 !important;
+    padding: 10px 24px;
+    border-radius: 2px;
+    font-size: 12px !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--pine) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--forest);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-mountains {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    opacity: 0.15;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 120px 48px 80px;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--summit);
+    margin-bottom: 32px;
+    letter-spacing: -1px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(232,237,232,0.65);
+    max-width: 520px;
+    margin-bottom: 48px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: #fff;
+    padding: 16px 36px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: #a86e30;
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    border: 1px solid rgba(232,237,232,0.3);
+    color: var(--summit);
+    padding: 16px 36px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--summit);
+    transform: translateY(-1px);
+  }
+
+  .hero-trail {
+    position: absolute;
+    bottom: 48px;
+    left: 48px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    z-index: 2;
+  }
+
+  .trail-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--amber);
+    opacity: 0.6;
+  }
+
+  .trail-dot:nth-child(2) { opacity: 0.4; }
+  .trail-dot:nth-child(3) { opacity: 0.25; }
+  .trail-dot:nth-child(4) { opacity: 0.15; }
+
+  /* ABOUT */
+  .about {
+    padding: 120px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .about-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 20px;
+  }
+
+  .about h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--forest);
+    margin-bottom: 28px;
+  }
+
+  .about p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 48px;
+    background: var(--forest);
+    border-radius: 4px;
+  }
+
+  .stat-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--summit);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--sage);
+    text-transform: uppercase;
+  }
+
+  /* PLANS */
+  .plans {
+    background: var(--forest);
+    padding: 120px 48px;
+  }
+
+  .plans-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 80px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 20px;
+  }
+
+  .plans-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    color: var(--summit);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .plans-header p {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(232,237,232,0.6);
+    line-height: 1.8;
+  }
+
+  .plans-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .plan-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(232,237,232,0.1);
+    border-radius: 4px;
+    padding: 48px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .plan-card:hover {
+    border-color: rgba(193,127,58,0.4);
+    transform: translateY(-4px);
+  }
+
+  .plan-sport {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 16px;
+  }
+
+  .plan-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--summit);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .plan-card p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(232,237,232,0.55);
+    margin-bottom: 32px;
+  }
+
+  .plan-features {
+    list-style: none;
+    margin-bottom: 40px;
+  }
+
+  .plan-features li {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(232,237,232,0.7);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(232,237,232,0.06);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .plan-features li::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+
+  .plan-pricing {
+    border-top: 1px solid rgba(232,237,232,0.1);
+    padding-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  .price-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .price-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(232,237,232,0.5);
+    letter-spacing: 0.5px;
+  }
+
+  .price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--summit);
+  }
+
+  .price-amount span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: rgba(232,237,232,0.4);
+  }
+
+  .plan-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-plan-full {
+    background: var(--amber);
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s;
+    display: block;
+  }
+
+  .btn-plan-full:hover { background: #a86e30; }
+
+  .btn-plan-monthly {
+    border: 1px solid rgba(232,237,232,0.2);
+    color: var(--summit);
+    padding: 14px 24px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: border-color 0.2s;
+    display: block;
+  }
+
+  .btn-plan-monthly:hover { border-color: rgba(232,237,232,0.5); }
+
+  /* HOW IT WORKS */
+  .how {
+    padding: 120px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .how-header {
+    margin-bottom: 80px;
+  }
+
+  .how h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    color: var(--forest);
+    line-height: 1.2;
+    max-width: 500px;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+
+  .step-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    color: rgba(30,61,53,0.08);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .step h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--forest);
+    margin-bottom: 12px;
+  }
+
+  .step p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  .step-divider {
+    width: 32px;
+    height: 1px;
+    background: var(--amber);
+    margin-bottom: 20px;
+  }
+
+  /* FAQ */
+  .faq {
+    background: var(--summit);
+    padding: 120px 48px;
+  }
+
+  .faq-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-header {
+    margin-bottom: 64px;
+  }
+
+  .faq h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    color: var(--forest);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(30,61,53,0.12);
+    padding: 28px 0;
+  }
+
+  .faq-question {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--forest);
+    margin-bottom: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--amber);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+
+  .faq-item.open .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--muted);
+    display: none;
+    padding-top: 4px;
+  }
+
+  .faq-item.open .faq-answer { display: block; }
+
+  /* FOOTER */
+  footer {
+    background: var(--forest);
+    padding: 64px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--summit);
+  }
+
+  .footer-brand span {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--sage);
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(232,237,232,0.5);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--summit); }
+
+  .footer-copy {
+    font-size: 11px;
+    font-weight: 300;
+    color: rgba(232,237,232,0.3);
+    letter-spacing: 0.5px;
+    align-self: flex-end;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero-content { padding: 100px 24px 60px; }
+    .about { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
+    .plans { padding: 80px 24px; }
+    .plans-grid { grid-template-columns: 1fr; }
+    .how { padding: 80px 24px; }
+    .steps { grid-template-columns: 1fr; gap: 32px; }
+    .faq { padding: 80px 24px; }
+    footer { padding: 48px 24px; flex-direction: column; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease forwards; }
+  .hero h1 { animation: fadeUp 0.6s ease 0.1s forwards; opacity: 0; }
+  .hero-sub { animation: fadeUp 0.6s ease 0.2s forwards; opacity: 0; }
+  .hero-actions { animation: fadeUp 0.6s ease 0.3s forwards; opacity: 0; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    SIAN CRESPO
+    <span>Coaching</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#plans">Plans</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#plans" class="nav-cta">Get started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="hero-mountains" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="0,400 200,180 400,400" fill="#4a7c6f"/>
+    <polygon points="150,400 380,120 610,400" fill="#2d5a4e"/>
+    <polygon points="350,400 620,80 890,400" fill="#e8ede8"/>
+    <polygon points="600,400 850,150 1100,400" fill="#2d5a4e"/>
+    <polygon points="850,400 1100,200 1350,400" fill="#4a7c6f"/>
+    <polygon points="1100,400 1300,160 1500,400" fill="#2d5a4e"/>
+    <polygon points="620,80 598,130 642,130" fill="white" opacity="0.6"/>
+    <polygon points="380,120 362,160 398,160" fill="white" opacity="0.5"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Mountain bike · Off-road triathlon · Endurance</div>
+    <h1>Train with<br><em>purpose.</em><br>Race with<br>confidence.</h1>
+    <p class="hero-sub">16-week performance plans built for riders and off-road triathletes who want structured, progressive training — without the guesswork.</p>
+    <div class="hero-actions">
+      <a href="#plans" class="btn-primary">View plans</a>
+      <a href="#how" class="btn-ghost">How it works</a>
+    </div>
+  </div>
+
+  <div class="hero-trail">
+    <div class="trail-dot"></div>
+    <div class="trail-dot"></div>
+    <div class="trail-dot"></div>
+    <div class="trail-dot"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-text">
+    <div class="about-label">The coach</div>
+    <h2>Endurance coaching rooted in the real world</h2>
+    <p>I'm Sian — an endurance athlete and coach with experience across mountain biking, off-road triathlon, and trail running. My plans are built around how real athletes actually train: around work, family, and life.</p>
+    <p>Every session has a purpose. Every week builds on the last. No filler, no fluff — just progressive, intelligent training that gets you to the start line ready to race.</p>
+  </div>
+  <div class="about-stats">
+    <div class="stat">
+      <div class="stat-value">16</div>
+      <div class="stat-label">Week plans</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">2</div>
+      <div class="stat-label">Disciplines</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">3</div>
+      <div class="stat-label">Training phases</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">7</div>
+      <div class="stat-label">Day structure</div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="plans" id="plans">
+  <div class="plans-header">
+    <div class="section-label">Training plans</div>
+    <h2>Choose your discipline</h2>
+    <p>Both plans follow a structured base, build, and taper progression. Delivered as a private Notion page — accessible on any device, any time.</p>
+  </div>
+
+  <div class="plans-grid">
+
+    <!-- MTB PLAN -->
+    <div class="plan-card">
+      <div class="plan-sport">Mountain bike</div>
+      <h3>MTB 16-Week Performance Plan</h3>
+      <p>A progressive 16-week plan for trail and endurance riders. Builds aerobic base, strength, and interval capacity through three structured phases.</p>
+      <ul class="plan-features">
+        <li>3 rides + 2 strength sessions per week in base phase</li>
+        <li>Sub-threshold intervals progressing to VO2 work</li>
+        <li>Sprint sessions with terrain-based efforts</li>
+        <li>Full body strength — heavy and power sessions</li>
+        <li>Built-in recovery weeks at weeks 4, 8, and 12</li>
+        <li>Optional yoga on rest and easy days</li>
+        <li>RPE-based — no power meter required</li>
+      </ul>
+      <div class="plan-pricing">
+        <div class="price-option">
+          <span class="price-label">Pay in full</span>
+          <span class="price-amount">$249</span>
+        </div>
+        <div class="price-option">
+          <span class="price-label">Monthly subscription</span>
+          <span class="price-amount">$69 <span>/ month</span></span>
+        </div>
+      </div>
+      <div class="plan-buttons">
+        <a href="https://buy.stripe.com/test_cNieVdftp330grF6Zg8k800" class="btn-plan-full">Buy now — $249</a>
+        <a href="https://buy.stripe.com/test_7sY00j4OLdHEcbp3N48k802" class="btn-plan-monthly">Subscribe — $69/month</a>
+      </div>
+    </div>
+
+    <!-- TRI PLAN -->
+    <div class="plan-card">
+      <div class="plan-sport">Off-road triathlon</div>
+      <h3>Off-Road Triathlon 16-Week Plan</h3>
+      <p>A complete off-road tri plan covering swim, bike, and trail run. Built for athletes targeting their first or second off-road event.</p>
+      <ul class="plan-features">
+        <li>3 bike + 3 run + 2 swim + 2 strength per week</li>
+        <li>Swim base builds from technique to threshold sets</li>
+        <li>Trail running with tempo and stride work</li>
+        <li>Off-road specific bike sessions</li>
+        <li>Built-in recovery weeks at weeks 4, 8, and 12</li>
+        <li>Optional yoga on rest and easy days</li>
+        <li>RPE-based — no power meter required</li>
+      </ul>
+      <div class="plan-pricing">
+        <div class="price-option">
+          <span class="price-label">Pay in full</span>
+          <span class="price-amount">$279</span>
+        </div>
+        <div class="price-option">
+          <span class="price-label">Monthly subscription</span>
+          <span class="price-amount">$75 <span>/ month</span></span>
+        </div>
+      </div>
+      <div class="plan-buttons">
+        <a href="https://buy.stripe.com/test_14A28rftp1YWgrFdnE8k801" class="btn-plan-full">Buy now — $279</a>
+        <a href="https://buy.stripe.com/test_8x2aEXchdcDA6R5erI8k804" class="btn-plan-monthly">Subscribe — $75/month</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="how-header">
+    <div class="about-label">The process</div>
+    <h2>From purchase to training in minutes</h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-number">01</div>
+      <div class="step-divider"></div>
+      <h3>Choose your plan</h3>
+      <p>Select the MTB or Off-Road Tri plan and your preferred payment option. Pay in full for best value or subscribe monthly for flexibility.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">02</div>
+      <div class="step-divider"></div>
+      <h3>Access your plan</h3>
+      <p>After purchase you receive a welcome email with your private Notion plan link. Click to open — no account or download required.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">03</div>
+      <div class="step-divider"></div>
+      <h3>Start training</h3>
+      <p>Your plan is laid out day by day for 16 weeks. Open each week, follow the sessions, and contact your coach any time you need support.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <div class="about-label">Questions</div>
+      <h2>Frequently asked</h2>
+    </div>
+
+    <div class="faq-item open">
+      <div class="faq-question">Do I need a power meter or heart rate monitor?</div>
+      <div class="faq-answer">No. All sessions are prescribed using RPE — Rate of Perceived Exertion — on a scale of 1-10. A power meter or heart rate monitor adds useful data but is not required to follow the plan effectively.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I access my training plan?</div>
+      <div class="faq-answer">After purchase you receive a welcome email with a private Notion link. Click the link to open your plan in any browser — no Notion account required. The plan is accessible on desktop, tablet, and mobile.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I cancel my monthly subscription?</div>
+      <div class="faq-answer">Yes — cancel any time via the billing portal linked in your welcome email. Cancellation takes effect at the end of your current billing period and you retain access until then.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What if the plan feels too hard or too easy?</div>
+      <div class="faq-answer">Contact your coach via the support chat or email. Sessions can be adapted to your current fitness level and the plan can be modified around injury, illness, or schedule changes.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Is there a refund policy?</div>
+      <div class="faq-answer">Pay in full purchases are eligible for a full refund within 14 days of purchase if you have not completed more than two weeks of the plan. Monthly subscription payments are non-refundable once a billing period has started.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    SIAN CRESPO
+    <span>Coaching</span>
+  </div>
+  <div class="footer-links">
+    <a href="#plans">Plans</a>
+    <a href="#how">How it works</a>
+    <a href="#faq">FAQ</a>
+    <a href="mailto:siant279+scctest@gmail.com">Support</a>
+  </div>
+  <div class="footer-copy">© 2025 Sian Crespo Coaching</div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
